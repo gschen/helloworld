@@ -1,0 +1,43 @@
+allprojects {
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+}
+
+project(':') {
+    idea {
+            project {
+                jdkName = '1.6'
+                languageLevel = '1.6'
+
+                ipr.withXml { xml ->
+                    def mapping = xml.node.component.find {it.@name == "VcsDirectoryMappings" }.mapping
+                    mapping.@vcs = 'Git'
+                    mapping.@directory = '$PROJECT_DIR$'
+                 }
+            }
+     }
+
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        junitVersion = '4.10'
+    }
+
+    dependencies {
+        testCompile (
+        "junit:junit:${junitVersion}")
+    }
+
+}
+task wrapper(type:Wrapper) {
+    gradleVersion='1.11'
+    archiveBase='PROJECT'
+    archivePath='gradle/dists'
+}
