@@ -1,0 +1,15 @@
+apply plugin: 'jetty'
+
+
+
+ext {
+
+}
+
+
+
+dependencies {
+    compile ('org.springframework:spring-core:4.0.1.RELEASE',
+            'org.springframework:spring-webmvc:4.0.1.RELEASE'
+    )
+}
