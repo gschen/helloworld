@@ -1,2 +1,2 @@
 rootProject.name = 'helloworld'
-include 'core','springmvc', 'springbatch', 'springboot'
+include 'core','springmvc', 'springbatch', 'springboot', 'springsecurity', 'springdata', 'springshell'

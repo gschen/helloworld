@@ -1,0 +1,28 @@
+description = 'Spring Shell Example'
+apply plugin: 'base'
+apply plugin: 'application'
+
+repositories {
+    maven { url "http://repo.springsource.org/libs-milestone" }
+    maven { url "http://repo.springsource.org/libs-release" }
+    mavenLocal()
+    mavenCentral()
+}
+ext {
+    springShellVersion = '1.0.0.RELEASE'
+    log4jVersion = '1.2.17'
+}
+
+dependencies {
+    compile "org.springframework.shell:spring-shell:$springShellVersion"
+    testCompile "junit:junit:$junitVersion"
+    runtime "log4j:log4j:$log4jVersion"
+}
+
+mainClassName = "org.springframework.shell.Bootstrap"
+
+defaultTasks 'installApp'
+
+run {
+    standardInput = System.in
+}

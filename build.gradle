@@ -1,34 +1,25 @@
+description = 'This is a helloworld project, in this you could spike everything you want!'
+
 buildscript {
+
+}
+
+project.ext {
+    versions = ['']
 }
 
 allprojects {
     apply plugin: 'idea'
     apply plugin: 'maven'
-}
-
-project(':') {
-    idea {
-            project {
-                jdkName = '1.6'
-                languageLevel = '1.6'
-
-                ipr.withXml { xml ->
-                    def mapping = xml.node.component.find {it.@name == "VcsDirectoryMappings" }.mapping
-                    mapping.@vcs = 'Git'
-                    mapping.@directory = '$PROJECT_DIR$'
-                 }
-            }
-     }
-
-
-}
-
-subprojects {
-    apply plugin: 'java'
 
     repositories {
         mavenCentral()
     }
+}
+
+
+subprojects {
+    apply plugin: 'java'
 
     ext {
         junitVersion = '4.10'
@@ -40,6 +31,7 @@ subprojects {
     }
 
 }
+
 task wrapper(type:Wrapper) {
     gradleVersion='1.11'
     archiveBase='PROJECT'

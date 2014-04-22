@@ -3,6 +3,8 @@ ext {
 }
 
 dependencies {
-    compile ("org.springframework:spring-core:${springVersion}")
+    compile ("org.springframework:spring-core:${springVersion}"
+            ,'org.xwiki.commons:xwiki-commons-velocity:6.0-milestone-1'
+    )
 }
 

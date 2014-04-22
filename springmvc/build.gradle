@@ -7,8 +7,8 @@ ext {
 }
 
 jar {
-    baseName: 'springmvc'
-    version: '0.1.0'
+    baseName = 'springmvc'
+    version = '0.1.0'
 }
 
 
